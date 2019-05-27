@@ -9,6 +9,6 @@ const PlaylistHeader = ({active, total}) => (
                 {active.num} / {total}
             </StyledJourney>
         </ StyledPlaylistHeader>
-    )
+    );
 
 export default PlaylistHeader;

@@ -10,6 +10,6 @@ const Playlist = ({videos, active, nightModeCallback, nightMode}) => (
             <PlaylistHeader active={active} total={videos.length}/>
             <PlaylistItems videos={videos} active={active}/>
         </ StyledPlaylist>
-    )
+    );
 
 export default Playlist;

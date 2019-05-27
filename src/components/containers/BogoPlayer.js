@@ -36,9 +36,59 @@ const BogoPlayer = props => {
         autoplay: false,
     });
 
-    const nightModeCallback = () => {}
-    const endCallback = () => {}
-    const progressCallback = () => {}
+    useEffect(
+        () => {
+            const videoId = props.match.params.activeVideo;
+            if(videoId !== undefined){
+                const newActiveVideo = state.videos.findIndex(
+                    video => video.id === videoId
+                );
+                setState({
+                    ...state, //Clone state
+                    activeVideo: state.videos[newActiveVideo],
+                    autoplay: props.location.autoplay,
+                });
+            } else {
+                props.history.push({
+                    pathname: `/${state.activeVideo.id}`,
+                    autoplay: false
+                });
+            }
+        },
+        [props.match.params.activeVideo]
+    );
+
+    const nightModeCallback = () => {
+        setState(prevState => ({
+            ...prevState, 
+            nightMode: !prevState.nightMode
+        }));
+    };
+
+    const endCallback = () => {
+        const videoId = props.match.params.activeVideo;
+        const currentVideoIndex = state.videos.findIndex(
+            video => video.id === videoId
+        );
+        const nextVideo = currentVideoIndex === state.videos.length - 1 ? 0 : currentVideoIndex + 1;
+        props.history.push({
+            pathname: `${state.videos[nextVideo].id}`,
+            autoplay: false
+        });
+    }
+
+    const progressCallback = event => {
+        if(event.playedSeconds > 10 && event.playedSeconds < 11){
+            setState({
+                ...state,
+                videos: state.videos.map(element => {
+                    return element.id === state.activeVideo.id ? 
+                    {...element, played: true}
+                    : element;
+                })
+            })
+        }
+    }
 
 
     return (
@@ -60,7 +110,7 @@ const BogoPlayer = props => {
                 </StyledBogoPlayer>
             ) : null}
         </ThemeProvider>
-    )
-}
+    );
+};
 
 export default BogoPlayer;

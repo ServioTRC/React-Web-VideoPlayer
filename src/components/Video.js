@@ -18,6 +18,6 @@ const Video = ({active, autoplay, endCallback, progressCallback}) => (
                 />
             </StyledVideoWrapper>
         </ StyledVideo>
-    )
+    );
 
 export default Video;

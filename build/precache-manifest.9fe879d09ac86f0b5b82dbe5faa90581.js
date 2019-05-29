@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "3c4371d5fcfb71c6dbd2",
-    "url": "/React-Web-VideoPlayer/static/js/main.3c4371d5.chunk.js"
+    "revision": "d9ad0cd85330f4676b1e",
+    "url": "/React-Web-VideoPlayer/static/js/main.d9ad0cd8.chunk.js"
   },
   {
     "revision": "612383bb75997fb02a69",
@@ -12,7 +12,7 @@ self.__precacheManifest = [
     "url": "/React-Web-VideoPlayer/static/js/2.e13cc2ed.chunk.js"
   },
   {
-    "revision": "4948422b9e6eec0af45492e0035cb570",
+    "revision": "ca24a9ec7030911f1552faf34d03d237",
     "url": "/React-Web-VideoPlayer/index.html"
   }
 ];
